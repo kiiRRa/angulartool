@@ -1,0 +1,60 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-icon" data-background-color="blue">
+                        <i class="material-icons">
+                            <i class="material-icons">verified_user</i>
+                        </i>
+                    </div>
+                    <div class="card-content">
+                        <h4 class="card-title">Event Validator
+                            <small> - this will return the events from the last 24 hours</small>
+                        </h4>
+                        <form target="_blank" method="post" enctype="multipart/form-data" onsubmit="eventValidator()">
+                            <div class="form-group label-floating">
+                                <label class="control-label">Section ID</label>
+                                <input type="text" name="events" id="events" class="form-control" required="required">
+                            </div>
+                            <button type="button" class="btn btn-fill btn-info" value="validateEvents" onclick="eventValidator()">Trigger</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-icon" data-background-color="blue">
+                        <i class="material-icons">file_download</i>
+                    </div>
+                    <div class="card-content">
+                        <h4 class="card-title">Event Extractor
+                            <small> - this will return the events from the selected date and time</small>
+                        </h4>
+                        <form ngNoForm action="http://rcom-worker1.use.dynamicyield.com:3489/publish_rule_update" method="post" target="_blank" method="post"
+                            enctype="multipart/form-data">
+                            <div class="form-group label-floating">
+                                <label class="control-label">Start Date</label>
+                                <input type="text" name="startDate" id="startDate" placeholder="&emsp;&emsp;&emsp;&emsp;&emsp; YYYY-MM-DD-HH" class="form-control" required="required">
+                            </div>
+                            <div class="form-group label-floating">
+                                <label class="control-label">End date</label>
+                                <input type="text" name="endDate" id="endDate" placeholder="&emsp;&emsp;&emsp;&emsp;&emsp; YYYY-MM-DD-HH" class="form-control" required="required">
+                            </div>
+                            <div class="form-group label-floating">
+                                <label class="control-label">Section ID</label>
+                                <input type="text" name="eventSection" id="eventSection" class="form-control" required="required">
+                            </div>
+                            <div class="form-group label-floating">
+                                <div class="col-md-12">
+                                    <p id="eventresponse"></p>
+                                </div>
+                            </div>
+                            <button type="button" onclick="extractEvents()" class="btn btn-fill btn-info" value="extract">Extract</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
